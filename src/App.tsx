@@ -28,19 +28,32 @@ function App() {
   ];
 
 
-  return (
-    <>
-      <h1> Liste des utilisateurs </h1>
-      {users.map((user, index) => (
-        <Card
-          key={index}
-          pseudo={user.pseudo}
-          email={user.email}
-          description={user.description}
-        />
-      ))}    
-    </>
+  if (users.length === 0) {
+
+    return (
+      <>
+        <h1> Aucun utilisateur </h1>
+      </>
   )
+} else {
+
+  return (      
+    <>
+    <h1> Liste des utilisateurs </h1>
+    {users.map((user, index) => (
+      <Card
+      key={index}
+      pseudo={user.pseudo}
+      email={user.email}
+      description={user.description}
+      />
+    ))}    
+  </>
+)
+
+
+}
+
 }
 
 export default App
